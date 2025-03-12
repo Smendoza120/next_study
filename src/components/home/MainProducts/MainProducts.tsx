@@ -11,7 +11,7 @@ export const MainProducts = async () => {
 
       <div className={Styles.MainProducts__grid}>
         {products.map((product: any) => {
-          const imageSrc = product.images[0].src;
+          const imageSrc = product.image;
           return (
             <article key={product.id}>
               <p>{product.title}</p>
