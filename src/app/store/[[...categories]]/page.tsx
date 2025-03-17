@@ -8,8 +8,8 @@ import { getProducts } from "app/services/shopify/products";
 interface CategoriesProps {
   params: {
     categories: string[];
-    searchParams?: string;
   };
+  searchParams?: string;
 }
 
 export default async function Categories(props: CategoriesProps) {
@@ -19,18 +19,12 @@ export default async function Categories(props: CategoriesProps) {
 
   if (categories?.length > 0) {
     const selectedCollectionId = collections.find(
-      (collection: any) => collection.handle === categories[0]
+      (collection) => collection.handle === categories[0]
     ).id;
     products = await getCollectionsProducts(selectedCollectionId);
   } else {
     products = await getProducts();
   }
 
-  console.log("products", products);
-
-  return (
-    <div>
-      <ProductsWrapper products={products} />
-    </div>
-  );
+  return <ProductsWrapper products={products} />;
 }

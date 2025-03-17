@@ -10,9 +10,9 @@ export const ProductCard = ({ product }: ProductCardInterface) => {
   return (
     <Link
       className={Styles.ProductCard__link}
-      href={`/articulo/${product.handle}?id=${product.id}`}
+      href={`/product/${product.handle}?id=${product.id}`}
     >
-      <article className={Styles.ProductCard__ProductCard}>
+      <article className={Styles.ProductCard}>
         <Image
           src={product.image}
           alt={product.title}
@@ -26,7 +26,7 @@ export const ProductCard = ({ product }: ProductCardInterface) => {
           <h3>{product.title}</h3>
         </div>
 
-        <span className={Styles.ProductCard__priceTag}>{product.price}</span>
+        <span className={Styles.ProductCard__priceTag}>{product.price} USD</span>
       </article>
     </Link>
   );

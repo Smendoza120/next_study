@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Styles from "./ProductView.module.sass";
 import { ProductViewItemsOrder } from "./ProductViewItemsOrder";
+import { SanitizeHTML } from "../shared/SanitizeHTML/SanitizeHTML";
 
 interface ProductViewProps {
   product: ProductType;
@@ -22,10 +23,12 @@ export const ProductView = ({ product }: ProductViewProps) => {
       <section className={Styles.ProductView__info}>
         <h1 className={Styles.ProductView__info_title}>{product.title}</h1>
         <p className={Styles.ProductView__info__category}>{product.tags}</p>
-        <p className={Styles.ProductView__info__description}>
-          {product.description}
-        </p>
-        <span className={Styles.ProductView__info__price}>{product.price}</span>
+        
+        <SanitizeHTML tag="p">{product.descrption}</SanitizeHTML>
+
+        <span className={Styles.ProductView__info__price}>
+          $ {product.price}
+        </span>
         <ProductViewItemsOrder maxQuantity={product.quantity} />
       </section>
     </main>

@@ -1,7 +1,6 @@
-"use client"
-
-import { SyntheticEvent, useState } from "react";
+"use client";
 import Styles from "./ProductViewItemsOrder.module.sass";
+import { SyntheticEvent, useState } from "react";
 import { FaCartShopping } from "react-icons/fa6";
 
 interface ProductViewItemsOrderProps {
@@ -39,9 +38,8 @@ export const ProductViewItemsOrder = ({
       <form
         onSubmit={handleSubmit}
         className={Styles.ProductViewItemsOrder__form}
-        action=""
       >
-        <button className={Styles.ProductViewItemsOrder__submit}>
+        <button className={Styles.ProductViewItemsOrder__submit} type="submit">
           <FaCartShopping />
           <span>add to cart</span>
         </button>
